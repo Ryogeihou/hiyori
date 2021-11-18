@@ -3,9 +3,17 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySQL配置
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.33.16:3306/hiyori_member
+    url: jdbc:mysql://192.168.33.16:3306/hiyori_coupon
     username: root
     password: root
+  cloud:
+    nacos:
+      discovery:
+        server-add: 127.0.0.1:8848
+#        server-add: 192.168.1.122:8848
+  application:
+    name: coupon
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
@@ -13,3 +21,5 @@ mybatis-plus:
       id-type: auto
       logic-delete-value: 1
       logic-not-delete-value: 0
+server:
+  port: 7000

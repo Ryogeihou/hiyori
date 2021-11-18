@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @FeignClient("member")
-public interface memberList {
+public interface MemberFeignService {
     @RequestMapping("/member/userinfo/list")
-    public R list(@RequestParam Map<String, Object> params);
+    public R list();
 }

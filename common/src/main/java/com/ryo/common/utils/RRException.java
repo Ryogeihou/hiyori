@@ -6,7 +6,7 @@
  * 版权所有，侵权必究！
  */
 
-package io.renren.common.exception;
+package com.ryo.common.utils;
 
 /**
  * 自定义异常
