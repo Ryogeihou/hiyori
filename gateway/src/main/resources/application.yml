@@ -12,12 +12,20 @@ spring:
           predicates:
             - Query=url,qq
 
-#        - id: product_route
-#          uri: lb://gulimall-product
-#          predicates:
-#            - Path=/api/product/**
-#          filters:
-#            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: product_route
+          uri: lb://product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+
 #
 #        - id: third_party_route
 #          uri: lb://gulimall-third-party
@@ -39,13 +47,14 @@ spring:
 #            - Path=/api/ware/**
 #          filters:
 #            - RewritePath=/api/(?<segment>.*),/$\{segment}
-#
-#        - id: admin_route
-#          uri: lb://renren-fast
-#          predicates:
-#            - Path=/api/**
-#          filters:
-#            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "docs.spring.io"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - OPTIONS
 
 
 
