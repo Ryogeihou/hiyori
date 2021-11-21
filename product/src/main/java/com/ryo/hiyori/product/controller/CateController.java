@@ -26,7 +26,7 @@ import com.ryo.common.utils.R;
  * @date 2021-11-11 20:23:58
  */
 @RestController
-@RequestMapping("product/cate")
+@RequestMapping("product/category")
 public class CateController {
     @Autowired
     private CateService cateService;
@@ -85,9 +85,10 @@ public class CateController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody String[] ids){
-		cateService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids){
+//		cateService.removeByIds(Arrays.asList(ids));
 
+		cateService.removeMenuByIds(Arrays.asList(ids));
         return R.ok();
     }
 

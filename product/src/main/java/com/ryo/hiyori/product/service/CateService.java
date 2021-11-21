@@ -19,5 +19,7 @@ public interface CateService extends IService<CateEntity> {
     PageUtils queryPage(Map<String, Object> params);
 
     List<CateEntity> listWithTree();
+
+    void removeMenuByIds(List<Long> asList);
 }
 
