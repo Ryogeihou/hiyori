@@ -1,10 +1,14 @@
 package com.ryo.hiyori.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -23,7 +27,7 @@ public class CateEntity implements Serializable {
 	 * 
 	 */
 	@TableId
-	private String id;
+	private Long id;
 	/**
 	 * 
 	 */
@@ -31,7 +35,7 @@ public class CateEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Integer catId;
+	private Long catId;
 	/**
 	 * 
 	 */
@@ -45,4 +49,11 @@ public class CateEntity implements Serializable {
 	 */
 	private String catName;
 
+	@TableField(exist = false)
+	private List<CateEntity> children;
+
+	private Integer sort;
+
+	@TableLogic(value = "1",delval = "0")
+	private Integer showStatus;
 }
